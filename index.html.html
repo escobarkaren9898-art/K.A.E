@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>K.A.E - Servicios Empresariales de Diseño y Branding</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const toggleButton = document.getElementById("menu-toggle");
+            const menu = document.getElementById("menu");
+            toggleButton.addEventListener("click", () => {
+                menu.classList.toggle("hidden");
+            });
+
+            // Animaciones al hacer scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px",
+            };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("opacity-100", "translate-y-0");
+                    }
+                });
+            }, observerOptions);
+            document.querySelectorAll(".animate-on-scroll").forEach((el) => observer.observe(el));
+        });
+    </script>
+    <style>
+        body {
+            font-family: "Inter", sans-serif;
+            background-color: #000000; /* Negro dominante */
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, #000000 0%, #2d3748 100%); /* Negro a gris oscuro */
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+            background-color: #1a202c; /* Gris oscuro para tarjetas */
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(255, 255, 255, 0.1);
+        }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+        .text-accent {
+            color: #e2e8f0; /* Blanco/gris claro para acentos */
+        }
+        .btn-accent {
+            background-color: #2d3748;
+            color: white;
+        }
+        .btn-accent:hover {
+            background-color: #4a5568;
+        }
+        @media print {
+            .no-print {
+                display: none;
+            }
+            .print-section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body class="text-white">
+    <!-- Barra de navegación -->
+    <nav class="bg-black shadow-lg sticky top-0 z-50 no-print border-b border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-white">K.A.E</h1>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-300 hover:text-white border-b border-transparent hover:border-white pb-1">Inicio</a>
+                    <a href="#services" class="text-gray-300 hover:text-white border-b border-transparent hover:border-white pb-1">Servicios</a>
+                    <a href="#portfolio" class="text-gray-300 hover:text-white border-b border-transparent hover:border-white pb-1">Portafolio</a>
+                    <a href="#flyer" class="text-gray-300 hover:text-white border-b border-transparent hover:border-white pb-1">Folleto</a>
+                    <a href="#contact" class="text-gray-300 hover:text-white border-b border-transparent hover:border-white pb-1">Contacto</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="menu-toggle" class="text-white hover:text-gray-300">
+                        <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+                            <path d="M3 12h18M3 6h18M3 18h18"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="menu" class="md:hidden hidden bg-black border-t border-gray-700">
+            <a href="#home" class="block px-4 py-2 text-gray-300 hover:bg-gray-800">Inicio</a>
+            <a href="#services" class="block px-4 py-2 text-gray-300 hover:bg-gray-800">Servicios</a>
+            <a href="#portfolio" class="block px-4 py-2 text-gray-300 hover:bg-gray-800">Portafolio</a>
+            <a href="#flyer" class="block px-4 py-2 text-gray-300 hover:bg-gray-800">Folleto</a>
+            <a href="#contact" class="block px-4 py-2 text-gray-300 hover:bg-gray-800">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- Sección Hero/Home -->
+    <section id="home" class="hero-bg py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center animate-on-scroll gap-8">
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <h2 class="text-4xl md:text-6xl font-bold mb-4 text-accent">Elevamos tu marca en Naq Capital</h2>
+                <p class="text-xl md:text-2xl mb-8 text-gray-300">Soluciones serias y profesionales para empresas: logos, publicidad, videos, CV y cartas de presentación que impulsan el éxito corporativo.</p>
+                <a href="#services" class="btn-accent px-8 py-3 rounded-lg font-semibold transition">Explorar Servicios</a>
+            </div>
+            <div class="md:w-1/2 grid grid-cols-1 gap-6">
+                <img
+                    src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5228fb7c-c383-4775-b865-cc8730a5786e.png"
+                    alt="Representación gráfica de una empresa en Naq Capital con elementos de branding corporativos, logos impactantes en edificios modernos, folletos publicitarios, videos en pantallas y documentos profesionales como CV y cartas de presentación sobre escritorios ejecutivos en un entorno urbano sofisticado"
+                    class="rounded-lg shadow-lg w-full"
+                    onerror="this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/aa27b75a-8fbc-4ea4-98b2-27fd8716fb9e.png'"
+                />
+                <!-- Imagen de computadora agregada -->
+                <img
+                    src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80"
+                    alt="Computadora portátil moderna en escritorio con diseño gráfico en pantalla, representando trabajo profesional de diseño y publicidad"
+                    class="rounded-lg shadow-lg w-full"
+                />
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Servicios -->
+    <section id="services" class="py-20 bg-gray-900 animate-on-scroll no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-3xl font-bold text-center mb-12 text-white">Nuestros Servicios Profesionales</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card-hover p-6 rounded-lg shadow-md">
+                    <img
+                        src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1a54bca5-75bc-450e-acaf-4df6a12127b8.png"
+                        alt="Ilustración detallada de un logo corporativo moderno con tipografía elegante, símbolos abstractos representando innovación y fuerza empresarial, diseñado en colores negros y grises con toques sutiles de acento, sobre un fondo neutro profesional"
+                        class="rounded mb-4 w-full"
+                    />
+                    <h4 class="text-xl font-semibold mb-2 text-accent">Diseño de Logos</h4>
+                    <p class="text-gray-300">Logos corporativos únicos y memorables que representan la esencia de tu empresa y generan confianza en Naq Capital.</p>
+                </div>
+                <div class="card-hover p-6 rounded-lg shadow-md">
+                    <img
+                        src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/33967d67-99ef-49a8-89b3-702b5987c8ac.png"
+                        alt="Ilustración detallada de un folleto publicitario tríptico en papel mate negro con diseños empresariales, iconos de marketing estratégico y texto corporativo serio, representando promoción profesional de productos en entornos de negocio"
+                        class="rounded mb-4 w-full"
+                        onerror="this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1dd45735-fa7f-4707-88c3-482b6be3555b.png'"
+                    />
+                    <h4 class="text-xl font-semibold mb-2 text-accent">Publicidad y Folletos</h4>
+                    <p class="text-gray-300">Campañas publicitarias impactantes y folletos personalizados que elevan la visibilidad de tu marca en el mercado empresarial.</p>
+                </div>
+                <div class="card-hover p-6 rounded-lg shadow-md">
+                    <img
+                        src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/93e65892-4730-4db3-a67d-480541601c24.png"
+                        alt="Video promocional corporativo en pantalla digital mostrando un edificio moderno en Naq Capital, con gráficos animados de logos, folletos y profesionales revisando CV y cartas de presentación en una oficina ejecutiva sofisticada"
+                        class="rounded mb-4 w-full"
+                    />
+                    <h4 class="text-xl font-semibold mb-2 text-accent">Producción de Videos</h4>
+                    <p class="text-gray-300">Videos corporativos de alta calidad que cuentan la historia de tu empresa y cautivan a tu audiencia en Naq Capital.</p>
+                </div>
+                <div class="card-hover p-6 rounded-lg shadow-md">
+                    <img
+                        src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ad9ea507-bd44-4c78-9038-fe1cd0164da9.png"
+                        alt="Visualización de un currículum vitae corporativo impreso en papel negro mate con foto de perfil ejecutiva, gráfico de habilidades en barras grises, y secciones de experiencia laboral y educación en estilo ejecutivo profesional para empresas en Naq Capital"
+                        class="rounded mb-4 w-full"
+                        onerror="this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/433b63c6-5645-43f4-904a-037048648632.png'"
+                    />
+                    <h4 class="text-xl font-semibold mb-2 text-accent">Creación de CV</h4>
+                    <p class="text-gray-300">Currículums vitae elegantes y eficaces que destacan tus logros y preparación para posiciones ejecutivas.</p>
+                </div>
+                <div class="card-hover p-6 rounded-lg shadow-md">
+                    <img
+                        src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9c899c86-0c51-464c-ae92-e1bd87c62075.png"
+                        alt="Imagen de una carta de presentación corporativa en papel carta negro con encabezado formal ejecutivo, párrafos estructurados en tipografía seriosa, firma digital y elementos de diseño sutil como líneas grises y fuentes elegantes para empresas en Naq Capital"
+                        class="rounded mb-4 w-full"
+                        onerror="this.src='https://placehold.co/400x300/000000/ffffff/png'"
+                    />
+                    <h4 class="text-xl font-semibold mb-2 text-accent">Cartas de Presentación</h4>
+                    <p class="text-gray-300">Cartas persuasivas que complementan tu CV y ponen de relieve tu elegancia profesional.</p>
+                </div>
+                <div class="card-hover p-6 rounded-lg shadow-md">
+                    <img
+                        src="https://placehold.co/400x300/000000/ffffff/png"
+                        alt="Colección de servicios adicionales para empresas como branding completo, manuales de identidad, tarjetas de visita, banners y gráficos web, todos en tonos negros y grises con elementos corporativos representando innovación en Naq Capital"
+                        class="rounded mb-4 w-full"
+                    />
+                    <h4 class="text-xl font-semibold mb-2 text-accent">Entre Otros Servicios</h4>
+                    <p class="text-gray-300">Branding completo, tarjetas de visita, banners y soluciones gráficas personalizadas que fortalecen tu presencia empresarial.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Portafolio -->
+    <section id="portfolio" class="py-20 bg-black animate-on-scroll no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-3xl font-bold text-center mb-12 text-accent">Nuestro Portafolio Empresarial</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <img
+                        src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/76960507-41bb-4291-98a4-04426d95475e.png"
+                        alt="Ejemplo de logo diseñado para una empresa de tecnología en Naq Capital: símbolo moderno con circuitos y tipografía elegante en negro y gris, representando innovación y profesionalismo"
+                        class="rounded mb-4 w-full"
+                    />
+                    <h5 class="font-semibold text-accent">Logo Estratégico</h5>
+                    <p class="text-gray-400">Diseño logo que capturó la visión de una empresa líder en tecnología.</p>
+                </div>
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <img
+                        src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0d7a9078-eff0-4ac5-8b05-30d8565bfd50.png"
+                        alt="Folleto publicitario para una firma de Naq Capital: tríptico negro mate con layouts ejecutivos, estadísticas empresariales y llamados a acción serios en un diseño minimalista profesional"
+                        class="rounded mb-4 w-full"
+                    />
+                    <h5 class="font-semibold text-accent">Campaña Publicitaria</h5>
+                    <p class="text-gray-400">Folleto que aumentó la recurrencia de leads en un 40%</p>
+                </div>
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <img
+                        src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a5c6aa77-51a2-45a0-b4a4-9d933332bc75.png"
+                        alt="Marco de video corporativo mostrando ejecutivo en oficina de Naq Capital discutiendo estrategia de marca con gráficos animados de logos y folletos, en estilo de video profesional serio"
+                        class="rounded mb-4 w-full"
+                    />
+                    <h5 class="font-semibold text-accent">Video de Empresa</h5>
+                    <p class="text-gray-400">Video promocional que contó la historia de éxito de un cliente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Folleto -->
+    <section id="flyer" class="min-h-screen bg-gradient-to-br from-black to-gray-800 py-20 animate-on-scroll print-section">
+        <div class="max-w-4xl mx-auto bg-gray-900 p-8 rounded-lg shadow-lg text-white">
+            <h3 class="text-3xl font-bold text-center mb-8 text-accent">Folleto K.A.E - Soluciones Empresariales Serias</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <img
+                        src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/69f49102-d8b6-46d0-87fc-8da4d2c28ca3.png"
+                        alt="Folleto promocional tríptico con elementos corporativos: diseños de logos, folletos publicitarios, videos, CV y cartas ejecutivos, mostrando un proceso profesional paso a paso en ilustraciones serias con iconos de éxito empresarial en Naq Capital"
+                        class="rounded mb-4 w-full"
+                        onerror="this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a5a97d12-6528-4e40-a2bb-0845534b00e1.png'"
+                    />
+                    <h4 class="text-xl font-semibold mb-2">¿Por Qué Elegir K.A.E?</h4>
+                    <ul class="list-disc list-inside text-gray-400">
+                        <li>Diseños profesionales y empresariales</li>
+                        <li>Enfoque serio en resultados para empresas</li>
+                        <li>Entregas rápidas y de calidad</li>
+                        <li>Ubicados estratégicamente en Naq Capital</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-4">Nuestros Servicios Destacados</h4>
+                    <p class="mb-4 text-gray-300">De logos a videos, pasando por publicidad y documentos profesionales: potenciamos tu marca empresarial con seriedad y expertise.</p>
+                    <button onclick="window.print()" class="btn-accent px-6 py-2 rounded-lg hover:opacity-90 transition no-print">Imprimir Folleto</button>
+                    <div class="mt-4">
+                        <img
+                            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c740665f-8b75-4a02-968f-0304d4801ad9.png"
+                            alt="Testimonio visual: cita de empresa 'K.A.E elevó nuestra marca con logos serios y publicidad impactante, generando más clientes en Naq Capital' con logo de empresa y gráfico de crecimiento"
+                            class="rounded w-full"
+                            onerror="this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/882f2a44-5065-4ce8-88de-e446849aa0ea.png'"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <footer id="contact" class="bg-gray-900 text-white py-12 animate-on-scroll no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h4 class="text-xl font-semibold mb-4">Contáctanos en Naq Capital</h4>
+                    <p class="mb-2">Teléfono: +57 123 456 7890</p>
+                    <p class="mb-2">Email: info@kae.com</p>
+                    <p>Dirección: Calle Principal 123, Naq Capital, País</p>
+                    <p class="mt-4 text-gray-400">Todos nuestros servicios están diseñados para empresas serias que buscan excelencia y resultados tangibles.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-4">Consulta Profesional</h4>
+                    <form action="#" method="POST">
+                        <input type="text" placeholder="Tu Nombre" class="w-full p-2 mb-4 rounded bg-gray-800 text-white border border-gray-700" required>
+                        <input type="email" placeholder="Tu Email" class="w-full p-2 mb-4 rounded bg-gray-800 text-white border border-gray-700" required>
+                        <select class="w-full p-2 mb-4 rounded bg-gray-800 text-white border border-gray-700" required>
+                            <option value="">Selecciona Servicio</option>
+                            <option value="logos">Logos</option>
+                            <option value="publicidad">Publicidad/Folletos</option>
+                            <option value="videos">Videos</option>
+                            <option value="cv">CV y Cartas</option>
+                            <option value="other">Otros</option>
+                        </select>
+                        <textarea placeholder="Mensaje Profesional" class="w-full p-2 mb-4 rounded bg-gray-800 text-white border border-gray-700" rows="4" required></textarea>
+                        <button type="submit" class="btn-accent px-6 py-2 rounded-lg transition">Enviar Consulta</button>
+                    </form>
+                </div>
+            </div>
+            <p class="text-center mt-8 text-gray-500">© 2023 K.A.E. Servicios Empresariales Serios. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
